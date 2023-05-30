@@ -1,0 +1,84 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["UM"] = "Home page";
+}
+<style>
+    body {
+        background-color: black;
+    }
+    span {
+        opacity: 0;
+        transition: all 0.4s ease;
+    }
+        span.fade {
+            opacity: 1;
+        }
+    h1 {
+        color: white;
+        line-height: 100vh;
+        text-align: center;
+        font-family: sans-serif;
+        font-weight:bolder;
+        font-size: 70px;
+    }
+    h3 {
+        color:white;
+        text-align: center;
+        font-family: sans-serif;
+        font-weight: 600;
+        font-size:50px;
+    }
+
+/*Animation*/
+    #boxContainer {
+        width: 600px;
+        height: 600px;
+        position: relative;
+        background: black;
+    }
+    #myAnimation {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        background-color: seagreen;
+    }
+</style>
+
+
+<div>
+    <h1>Unique Music</h1>
+</div>
+<h3><b>A Song With 17 Million Views</b></h3>
+<div class="center">
+    <iframe width="1300" height="700" src="https://www.youtube.com/embed/HxKRdL1N9os" title="Madonna Vs Sickick - Frozen (Fireboy DML Remix) [Official Music Video]" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+<h6>Watch & subscribe our youtube channel</h6>
+<h1 class="animation">A Filming Production</h1>
+<p>
+    <button onclick="myMove()">Click Me To Move</button>
+</p>
+<div id="boxContainer">
+    <div id="myAnimation"></div>
+
+
+<script>
+    var id = null;
+    function myMove() {
+        var elem = document.getElementById("myAnimation");
+        var pos = 0;
+        clearInterval(id);
+        id = setInterval(frame, 6);
+        function frame() {
+            if (pos == 550) {
+                clearInterval(id);
+            } else {
+                pos++;
+                elem.style.top = pos + 'px';
+                elem.style.left = pos + 'px';
+            }
+        }
+    }
+</script>
+
+
